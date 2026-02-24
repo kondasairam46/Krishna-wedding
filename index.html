@@ -61,6 +61,31 @@
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body id="top">
+    <!-- START CURTAIN -->
+<div id="curtain" onclick="openCurtain()" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; cursor: pointer; transition: 1s;">
+    <div class="left-panel" style="width: 50%; height: 100%; background: #1d1d1f; transition: 1.2s cubic-bezier(0.645, 0.045, 0.355, 1); border-right: 1px solid #333;"></div>
+    <div class="right-panel" style="width: 50%; height: 100%; background: #1d1d1f; transition: 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);"></div>
+    <div id="curtain-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; font-family: 'Arial', sans-serif;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Alekhya & Krishna</h1>
+        <p style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; opacity: 0.7;">Tap to Open</p>
+    </div>
+</div>
+
+<script>
+function openCurtain() {
+    const curtain = document.getElementById('curtain');
+    curtain.querySelector('.left-panel').style.transform = 'translateX(-100%)';
+    curtain.querySelector('.right-panel').style.transform = 'translateX(100%)';
+    document.getElementById('curtain-text').style.opacity = '0';
+    setTimeout(() => { 
+        curtain.style.display = 'none'; 
+        document.body.style.overflow = 'auto'; 
+    }, 1200);
+}
+// Prevent scrolling until opened
+document.body.style.overflow = 'hidden';
+</script>
+<!-- END CURTAIN -->
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
